@@ -3,18 +3,18 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5%;
+  padding: 6.5%;
   min-height: 100vh;
+
 }
 
 .navBarContainer {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  z-index: 2;
+  position: sticky;
 }
+
 .navBarContainer h1 {
   position: relative;
   margin: 0;
@@ -23,148 +23,298 @@
   font-family: sans-serif;
 }
 
-.navBarIcons{
+.navBarIcons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .navBarIcons h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 15px;
 }
 
-
-
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: var(--max-width);
-  width: 100%;
-}
-
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-}
-
-.center {
+.logInContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  padding: 4rem 0;
+  width: 100%;
 }
 
-.logo {
-  position: relative;
+.logInContainer span {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcaseLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcaseLogo .logo {
+  width: 500px;
+  height: 500px;
 }
 
 
-/* Mobile */
-@media (max-width: 700px) {
-  .content {
-    padding: 4rem;
-  }
 
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
-  }
 
-  .card {
-    padding: 1rem 2.5rem;
-  }
-
-  .card h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .center {
-    padding: 8rem 0 6rem;
-  }
-
-  .center::before {
-    transform: none;
-    height: 300px;
-  }
-
-  .description {
-    font-size: 0.8rem;
-  }
-
-  .description a {
-    padding: 1rem;
-  }
-
-  .description p,
-  .description div {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-  }
-
-  .description p {
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
-    background-clip: padding-box;
-    backdrop-filter: blur(24px);
-  }
-
-  .description div {
-    align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
-    z-index: 1;
-  }
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  width: 100%;
+  padding: 5px;
+  background-color: aliceblue;
+  margin-top: 3%;
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-  .grid {
-    grid-template-columns: repeat(2, 50%);
-  }
+.grid {
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  background-color: rgba(36, 145, 240, 0.692);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+
+
+.grid h2 {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #101357;
+}
+
+.grid p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 30ch;
+  color: #101357;
+}
+
+.headerAskQuestion {
+  margin-top: 8%;
+}
+
+.searchQuestionsContainer {
+  width: 100%;
+  height: 100vh;
+  min-height: 70vh;
+  overflow-y: scroll;
+  background-color: #101357;
+  border-radius: 5px;
+  margin-top: 2%;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  margin-top: 3%;
+  top: 0;
+}
+
+.searchBar span {
+  color: #ffff;
+}
+
+.searchBar input {
+  width: 800px;
+  height: 50px;
+  background-color: #101357;
+  border: 1px solid #ffff;
+  text-align: center;
+  color: #ffff;
+  border-radius: 5px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.searchBar input::placeholder {
+  color: #cccccc;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.listQuestions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+
+.listQuestions ul li {
+  color: #ffff;
+  list-style: circle;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+
+.feedBack {
+  background-color: aliceblue;
+  margin-top: 2%;
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputFields .fieldOne {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.inputFields .fieldOne input {
+  width: 300px;
+  height: 40px;
+}
+
+
+.inputFields .fieldTwo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2%;
+  font-weight: 700;
+}
+
+.inputFields .fieldTwo input {
+  width: 300px;
+  height: 70px;
+}
+
+
+.inputFields .submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.inputFields .submitBtn button {
+  padding: 3px;
+  width: 100px;
+  height: 40px;
+  background-color: #101357;
+  color: #ffff;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.userMessageContainer {
+  margin-top: 6%;
+  width: 70%;
+  height: 40vh;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subUserMessage {
+  width: 23%;
+  height: 65%;
+  border-radius: 50%;
+  background-color: #101357;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.subUserMessage .userName {
+  color: #cccc;
+}
+
+.subUserMessage .userName h1 {
+  font-weight: 100;
+  font-size: 25px;
+}
+
+.subUserMessage .userMessage {
+  width: 60%;
+  color: #fff;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  margin-top: 2%;
+}
+
+.footer {
+  margin-top: 5%;
+  width: 100%;
+  height: 50vh;
+  background-color: #101357;
+  border-top-left-radius: 50%;
+}
+
+.itemsFooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10% 8%;
+  width: 100;
+}
+
+.firstItem h1 {
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+.footerLinks ul li {
+  list-style: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.lastItems {
+  display: flex;
+}
+
+.lastItems h1 {
+  margin-left: 15px;
+  color: #fff;
+}
+
+.bottomFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomFooter h1 {
+  font-size: 15px;
+  color: #ccc;
+}
+
+.footerLinks1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerLinks1 ul li {
+  list-style: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
 }

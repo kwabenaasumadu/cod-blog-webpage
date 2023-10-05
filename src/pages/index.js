@@ -7,11 +7,24 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import EmailIcon from "@mui/icons-material/Email";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import CallIcon from "@mui/icons-material/Call";
+import LocationCityRounded from "@mui/icons-material/LocationCityRounded";
+import { LocalActivityRounded } from "@mui/icons-material";
+
 
 export default function Home() {
   const [text, setText] = useState("");
   const introText = "Welcome To Code with COD";
   const typingForward = useRef(true);
+
+  const [userComments, setUserComments] = useState([]);
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  
 
   useEffect(() => {
     let currentIndex = 0;
@@ -41,7 +54,6 @@ export default function Home() {
     };
   }, []);
 
-
   return (
     <>
       <Head>
@@ -66,76 +78,216 @@ export default function Home() {
             <h1>
               <InstagramIcon />
             </h1>
+            <h1>
+              <EmailIcon />
+            </h1>
+          </div>
+
+          <div className={styles.logInContainer}>
+            <span>
+              Login <LoginIcon />
+            </span>
+
+            <span>
+              LogOut <LogoutIcon />
+            </span>
+
+            <span>
+              SignUp <AddBoxIcon />
+            </span>
           </div>
         </div>
 
-        <div className={styles.center}>
+        <div className={styles.showcaseLogo}>
           <Image
             className={styles.logo}
             src="/codLogo.jpg"
-            alt="Next.js Logo"
-            width={500}
-            height={400}
+            alt="cod_logo"
+            width={1000}
+            height={1000}
           />
         </div>
 
-        <div className={styles.grid}>
-          <a
-            href=""
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
+        <div className={styles.gridContainer}>
+          <a href="" className={styles.grid}>
+            <h2>Docs</h2>
             <p>
               Find in-depth information about Next.js features and&nbsp;API.
             </p>
           </a>
 
-          <a
-            href=""
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
+          <a href="" className={styles.grid}>
+            <h2>Learn</h2>
             <p>
               Learn about Next.js in an interactive course with&nbsp;quizzes!
             </p>
           </a>
 
-          <a
-            href=""
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span></span>
-            </h2>
+          <a href="" className={styles.grid}>
+            <h2>Templates</h2>
             <p>
               Discover and deploy boilerplate example Next.js&nbsp;projects.
             </p>
           </a>
 
-          <a
-            href=""
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
+          <a href="" className={styles.grid}>
+            <h2>Deploy</h2>
             <p>
               Instantly deploy your Next.js site to a shareable URL
               with&nbsp;Vercel.
             </p>
           </a>
+        </div>
+
+        <div className={styles.headerAskQuestion}>
+          <h1>What are you looking for</h1>
+        </div>
+        <div className={styles.searchQuestionsContainer}>
+          <div className={styles.searchBar}>
+            <input placeholder="search for your question" />
+          </div>
+          <div className={styles.listQuestions}>
+            <ul>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+              <li>What is paramter</li>
+              <li>What is arguments</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className={styles.feedBack}>
+          <div className={styles.header}>
+            <h1>Post Your Comment</h1>
+          </div>
+          <div className={styles.form}>
+            <form>
+              <div className={styles.inputFields}>
+                <div className={styles.fieldOne}>
+                  <span>Your Name</span>
+                  <input />
+                </div>
+
+                <div className={styles.fieldTwo}>
+                  <label>Your Message</label>
+                  <input />
+                </div>
+
+                <div className={styles.submitBtn}>
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className={styles.userMessageContainer}>
+          <div className={styles.subUserMessage}>
+            <div className={styles.userName}>
+              <h1>Asumadu</h1>
+            </div>
+
+            <div className={styles.userMessage}>
+              <p>
+                This is website is very awesome website for young peple who want
+                to learn programming
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.subUserMessage}>
+            <div className={styles.userName}>
+              <h1>Asumadu</h1>
+            </div>
+
+            <div className={styles.userMessage}>
+              <p>
+                This is website is very awesome website for young peple who want
+                to learn programming
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.subUserMessage}>
+            <div className={styles.userName}>
+              <h1>Asumadu</h1>
+            </div>
+
+            <div className={styles.userMessage}>
+              <p>
+                This is website is very awesome website for young peple who want
+                to learn programming
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.footer}>
+          <div className={styles.itemsFooter}>
+            
+          <div className={styles.firstItem}>
+              <h1>Code With COD</h1>
+
+            </div>
+            <div className={styles.footerLinks1}>
+              <ul>
+                <li><CallIcon/> <span>+233 597063145</span></li>
+                <li><EmailIcon/><span>kwabenasakyi450@gmail.com</span></li>
+                <li><LocalActivityRounded/><span>Kumasi - Ashanti, Ghana</span></li>
+              </ul>
+            </div>
+            <div className={styles.footerLinks}>
+              <ul>
+                <li>Link1</li>
+                <li>Link2</li>
+                <li>Link3</li>
+              </ul>
+            </div>
+
+          
+
+            <div className={styles.lastItems}>
+            <h1>
+              <FacebookIcon />
+            </h1>
+            <h1>
+              <LinkedInIcon />
+            </h1>
+            <h1>
+              <TwitterIcon />
+            </h1>
+            <h1>
+              <InstagramIcon />
+            </h1>
+            <h1>
+              <EmailIcon />
+            </h1>
+            </div>
+          </div>
+
+          <div className={styles.bottomFooter}>
+            <h1>Cpoy right 20203 code with cod</h1>
+          </div>
         </div>
       </main>
     </>
