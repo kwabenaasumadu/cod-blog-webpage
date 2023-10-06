@@ -12,9 +12,8 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import CallIcon from "@mui/icons-material/Call";
-import LocationCityRounded from "@mui/icons-material/LocationCityRounded";
 import { LocalActivityRounded } from "@mui/icons-material";
-
+import UserCommentComp from "./userComment";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -24,11 +23,8 @@ export default function Home() {
   const [userComments, setUserComments] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
 
-  
-
   useEffect(() => {
     let currentIndex = 0;
-
     const typingInterval = setInterval(() => {
       if (typingForward.current) {
         if (currentIndex <= introText.length) {
@@ -52,7 +48,7 @@ export default function Home() {
     return () => {
       clearInterval(typingInterval);
     };
-  }, []);
+  }, [introText]);
 
   return (
     <>
@@ -176,86 +172,26 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.feedBack}>
-          <div className={styles.header}>
-            <h1>Post Your Comment</h1>
-          </div>
-          <div className={styles.form}>
-            <form>
-              <div className={styles.inputFields}>
-                <div className={styles.fieldOne}>
-                  <span>Your Name</span>
-                  <input />
-                </div>
-
-                <div className={styles.fieldTwo}>
-                  <label>Your Message</label>
-                  <input />
-                </div>
-
-                <div className={styles.submitBtn}>
-                  <button type="submit">Submit</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        
-
-        <div className={styles.userMessageContainer}>
-          <div className={styles.subUserMessage}>
-            <div className={styles.userName}>
-              <h1>Asumadu</h1>
-            </div>
-
-            <div className={styles.userMessage}>
-              <p>
-                This is website is very awesome website for young peple who want
-                to learn programming
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.subUserMessage}>
-            <div className={styles.userName}>
-              <h1>Asumadu</h1>
-            </div>
-
-            <div className={styles.userMessage}>
-              <p>
-                This is website is very awesome website for young peple who want
-                to learn programming
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.subUserMessage}>
-            <div className={styles.userName}>
-              <h1>Asumadu</h1>
-            </div>
-
-            <div className={styles.userMessage}>
-              <p>
-                This is website is very awesome website for young peple who want
-                to learn programming
-              </p>
-            </div>
-          </div>
-        </div>
+        <UserCommentComp />
 
         <div className={styles.footer}>
           <div className={styles.itemsFooter}>
-            
-          <div className={styles.firstItem}>
+            <div className={styles.firstItem}>
               <h1>Code With COD</h1>
-
             </div>
             <div className={styles.footerLinks1}>
               <ul>
-                <li><CallIcon/> <span>+233 597063145</span></li>
-                <li><EmailIcon/><span>kwabenasakyi450@gmail.com</span></li>
-                <li><LocalActivityRounded/><span>Kumasi - Ashanti, Ghana</span></li>
+                <li>
+                  <CallIcon /> <span>+233 597063145</span>
+                </li>
+                <li>
+                  <EmailIcon />
+                  <span>kwabenasakyi450@gmail.com</span>
+                </li>
+                <li>
+                  <LocalActivityRounded />
+                  <span>Kumasi - Ashanti, Ghana</span>
+                </li>
               </ul>
             </div>
             <div className={styles.footerLinks}>
@@ -266,24 +202,22 @@ export default function Home() {
               </ul>
             </div>
 
-          
-
             <div className={styles.lastItems}>
-            <h1>
-              <FacebookIcon />
-            </h1>
-            <h1>
-              <LinkedInIcon />
-            </h1>
-            <h1>
-              <TwitterIcon />
-            </h1>
-            <h1>
-              <InstagramIcon />
-            </h1>
-            <h1>
-              <EmailIcon />
-            </h1>
+              <h1>
+                <FacebookIcon />
+              </h1>
+              <h1>
+                <LinkedInIcon />
+              </h1>
+              <h1>
+                <TwitterIcon />
+              </h1>
+              <h1>
+                <InstagramIcon />
+              </h1>
+              <h1>
+                <EmailIcon />
+              </h1>
             </div>
           </div>
 
