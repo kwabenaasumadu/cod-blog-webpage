@@ -8,7 +8,7 @@ import { getDatabase, get } from "firebase/database";
 import { useState } from "react";
 import { useEffect } from "react";
 
-function userComment() {
+function UserComment() {
   const [allUserComments, setAllUserComments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleComments, setVisibleComments] = useState([]);
@@ -153,4 +153,4 @@ function userComment() {
   );
 }
 
-export default userComment;
+export default UserComment;
