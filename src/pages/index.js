@@ -14,14 +14,22 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import CallIcon from "@mui/icons-material/Call";
 import { LocalActivityRounded } from "@mui/icons-material";
 import UserCommentComp from "./userComment";
+import "firebase/database";
+import firebase from "./firebase";
+import { db, analytics } from "./firebase";
+import { push, ref } from "firebase/database";
+import { getDatabase, get } from "firebase/database";
 
 export default function Home() {
   const [text, setText] = useState("");
   const introText = "Welcome To Code with COD";
   const typingForward = useRef(true);
 
-  const [userComments, setUserComments] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
+  const [questionsData, setQuestionsData] = useState({
+    questionTitle: "",
+    questionResponseText: "",
+  });
 
   useEffect(() => {
     let currentIndex = 2;
@@ -50,6 +58,48 @@ export default function Home() {
     };
   }, [introText]);
 
+  const handleQuestionSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await push(ref(db, "allQuestions"), questionsData);
+      setQuestionsData({
+        questionTitle: "",
+        questionResponseText: "",
+      });
+      console.log("Form submitted successfully");
+    } catch (error) {
+      console.error("Error submitting comment", error);
+    }
+  };
+
+  const handleInputChangeInSubmitQue = (e) => {
+    const { name, value } = e.target;
+    if (name === "questionTitle" || name === "questionResponseText") {
+      setQuestionsData({ ...questionsData, [name]: value });
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dbRef = getDatabase();
+        const response = await get(ref(dbRef, "allQuestions"));
+        const data = response.val();
+
+        if (data && typeof data === "object") {
+          const dataArray = Object.values(data);
+          setAllQuestions(dataArray);
+        } else {
+          setAllQuestions([]);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setAllQuestions([]);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -58,6 +108,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/codLogo.jpg" />
       </Head>
+      {/* <div className={styles.feedBack}>
+        <div className={styles.header}>
+          <h1>Post Your Comment</h1>
+        </div>
+        <div className={styles.form}>
+          <form onSubmit={handleQuestionSubmit}>
+            <div className={styles.inputFields}>
+              <div className={styles.fieldOne}>
+                <label htmlFor="UserName">Your Name</label>
+                <input
+                  type="text"
+                  id="questionTitle"
+                  name="questionTitle"
+                  value={questionsData.UserName}
+                  onChange={handleInputChangeInSubmitQue}
+                  placeholder="Enter your questionTitle"
+                />
+              </div>
+
+              <div className={styles.fieldTwo}>
+                <label htmlFor="UserMessage">Your Message</label>
+                <textarea
+                  id="questionResponseText"
+                  name="questionResponseText"
+                  value={questionsData.UserMessage}
+                  onChange={handleInputChangeInSubmitQue}
+                  placeholder="Enter your questionResponseText"
+                  rows="4"
+                />
+              </div>
+
+              <div className={styles.submitBtn}>
+                <button type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> */}
+
       <main className={styles.main}>
         <div className={styles.navBarContainer}>
           <h1>{text}</h1>
@@ -144,30 +233,9 @@ export default function Home() {
           </div>
           <div className={styles.listQuestions}>
             <ul>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
-              <li>What is paramter</li>
-              <li>What is arguments</li>
+              {allQuestions.map((question, index) => (
+                <li key={index}>{question.questionTitle}</li>
+              ))}
             </ul>
           </div>
         </div>
