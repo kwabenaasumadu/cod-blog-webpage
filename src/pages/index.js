@@ -24,7 +24,7 @@ export default function Home() {
   const [allQuestions, setAllQuestions] = useState([]);
 
   useEffect(() => {
-    let currentIndex = 0;
+    let currentIndex = 2;
     const typingInterval = setInterval(() => {
       if (typingForward.current) {
         if (currentIndex <= introText.length) {

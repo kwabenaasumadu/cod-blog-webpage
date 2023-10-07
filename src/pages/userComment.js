@@ -10,12 +10,13 @@ import { useEffect } from "react";
 
 function userComment() {
   const [allUserComments, setAllUserComments] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [visibleComments, setVisibleComments] = useState([]);
   const [commentData, setCommentData] = useState({
     UserName: "",
     UserMessage: "",
   });
-  const [currentPage, setCurrentPage] = useState(1);
+
   const commentsPerPage = 3;
 
   const handleInputChangeInComment = (e) => {

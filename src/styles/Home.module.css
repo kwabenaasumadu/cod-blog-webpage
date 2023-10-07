@@ -318,3 +318,113 @@
   margin-top: 10px;
   align-items: center;
 }
+
+
+@media (max-width: 700px) {
+  .main{
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+  }
+  .navBarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: none;
+  }
+
+  .navBarContainer h1{
+    padding: 0;
+    font-size: 17px;
+    height: 20px;
+  }
+  .navBarIcons h1{
+    margin: 10px;
+  }
+
+  .showcaseLogo .logo{
+    width: 300px;
+    height: 300px;
+  }
+
+  .gridContainer{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headerAskQuestion h1{
+    font-size: 20px;
+  }
+
+  .searchQuestionsContainer{
+    height: 70vh;
+  }
+
+  .searchBar input{
+    width: 330px;
+  }
+
+  .feedBack{
+    width: 100%;
+    margin-top: 6%;
+  }
+
+  .feedBack .header h1{
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .inputFields .fieldOne label{
+    margin-bottom: 5px;
+  }
+
+  .inputFields .fieldTwo label{
+    margin-bottom: 5px;
+  }
+
+  .inputFields .fieldTwo{
+    margin-top: 20px;
+  }
+
+  .userMessageContainer{
+    width: 100%;
+  }
+
+  .subUserMessage{
+    width: 20%;
+    height: 60%;
+  }
+
+  .footer{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 30%;
+  }
+  .itemsFooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .firstItem h1{
+    font-size: 17px;
+  }
+
+  .footerLinks ul li{
+    display: none;
+  }
+
+  .footerLinks1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footerLinks1 ul li{
+    font-size: 17px;
+  }
+}
