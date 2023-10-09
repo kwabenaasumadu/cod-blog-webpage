@@ -25,7 +25,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 
 
@@ -42,6 +42,11 @@ export default function Home() {
     questionTitle: "",
     questionResponseText: "",
   });
+  const codeBlockStyle = {
+    width: '100%', // Adjust this value to your desired width
+    overflowX: 'auto',
+    whiteSpace: 'pre-wrap', // Allows text to wrap within the container
+  };
 
   useEffect(() => {
     let currentIndex = 2;
@@ -314,11 +319,14 @@ export default function Home() {
           </div>
         </div>
         <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-          <DialogTitle>Selected Question Response</DialogTitle>
-          <DialogContent style={{wordBreak: 'break-word', width:'100%'}}>
+          <DialogTitle>Answer</DialogTitle>
+          <DialogContent>
+            <p>
             <SyntaxHighlighter language="javascript" >
               {selectedQuestionResponse}
             </SyntaxHighlighter>
+            </p>
+         
           </DialogContent>
           <DialogActions>
             <Button onClick={() => setIsDialogOpen(false)} color="primary">

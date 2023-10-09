@@ -64,6 +64,8 @@
   overflow-x: hidden;
   width: 100%;
   word-wrap: break-word;
+  line-height: 70px;
+  background-color: yellow;
 }
 
 
