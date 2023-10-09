@@ -25,6 +25,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -311,9 +314,11 @@ export default function Home() {
           </div>
         </div>
         <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-          <DialogTitle></DialogTitle>
-          <DialogContent>
-            <DialogContentText>{selectedQuestionResponse}</DialogContentText>
+          <DialogTitle>Selected Question Response</DialogTitle>
+          <DialogContent style={{wordBreak: 'break-word', width:'100%'}}>
+            <SyntaxHighlighter language="javascript" >
+              {selectedQuestionResponse}
+            </SyntaxHighlighter>
           </DialogContent>
           <DialogActions>
             <Button onClick={() => setIsDialogOpen(false)} color="primary">

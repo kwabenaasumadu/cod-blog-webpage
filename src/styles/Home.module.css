@@ -60,7 +60,11 @@
   height: 500px;
 }
 
-
+.hi{
+  overflow-x: hidden;
+  width: 100%;
+  word-wrap: break-word;
+}
 
 
 .gridContainer {
