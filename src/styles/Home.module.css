@@ -363,6 +363,12 @@
     height: 70vh;
   }
 
+  .listQuestions ul li{
+    font-size: 14px;
+    margin-left: 40px;
+    list-style: circle;
+  }
+
   .searchBar input {
     width: 330px;
   }

@@ -19,6 +19,12 @@ import firebase from "./firebase";
 import { db, analytics } from "./firebase";
 import { push, ref } from "firebase/database";
 import { getDatabase, get } from "firebase/database";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -26,6 +32,9 @@ export default function Home() {
   const typingForward = useRef(true);
 
   const [allQuestions, setAllQuestions] = useState([]);
+  const [selectedQuestionResponse, setSelectedQuestionResponse] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const [questionsData, setQuestionsData] = useState({
     questionTitle: "",
     questionResponseText: "",
@@ -234,7 +243,15 @@ export default function Home() {
           <div className={styles.listQuestions}>
             <ul>
               {allQuestions.map((question, index) => (
-                <li key={index}>{question.questionTitle}</li>
+                <li
+                  key={index}
+                  onClick={() => {
+                    setSelectedQuestionResponse(question.questionResponseText);
+                    setIsDialogOpen(true);
+                  }}
+                >
+                  {question.questionTitle}
+                </li>
               ))}
             </ul>
           </div>
@@ -293,6 +310,17 @@ export default function Home() {
             <h1>Cpoy right 20203 code with cod</h1>
           </div>
         </div>
+        <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+          <DialogTitle></DialogTitle>
+          <DialogContent>
+            <DialogContentText>{selectedQuestionResponse}</DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setIsDialogOpen(false)} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </main>
     </>
   );
