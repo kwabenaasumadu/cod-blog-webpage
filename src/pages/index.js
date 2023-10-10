@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -125,7 +126,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/codLogo.jpg" />
       </Head>
-      {/* <div className={styles.feedBack}>
+      <div className={styles.feedBack}>
         <div className={styles.header}>
           <h1>Post Your Comment</h1>
         </div>
@@ -162,14 +163,17 @@ export default function Home() {
             </div>
           </form>
         </div>
-      </div> */}
+      </div>
 
       <main className={styles.main}>
         <div className={styles.navBarContainer}>
           <h1>{text}</h1>
           <div className={styles.navBarIcons}>
             <h1>
+              <Link href="">
               <FacebookIcon />
+              </Link>
+            
             </h1>
             <h1>
               <LinkedInIcon />
@@ -212,9 +216,9 @@ export default function Home() {
 
         <div className={styles.gridContainer}>
           <a href="" className={styles.grid}>
-            <h2>Docs</h2>
+            <h2>JavaScript For Beginners</h2>
             <p>
-              Find in-depth information about Next.js features and&nbsp;API.
+           Download our JavaScript tutorials for beginners
             </p>
           </a>
 
