@@ -126,7 +126,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/codLogo.jpg" />
       </Head>
-      <div className={styles.feedBack}>
+      {/* <div className={styles.feedBack}>
         <div className={styles.header}>
           <h1>Post Your Comment</h1>
         </div>
@@ -163,7 +163,7 @@ export default function Home() {
             </div>
           </form>
         </div>
-      </div>
+      </div> */}
 
       <main className={styles.main}>
         <div className={styles.navBarContainer}>
